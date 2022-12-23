@@ -1,0 +1,20 @@
+<h1 class="d-flex align-items-center justify-content-center">All User Posts</h1>
+
+<% @post.each do |post| %>
+    <div class="mb-4 card card-body" >
+        <h4>
+            <%=post.user.email%>
+        </h4>
+        <h4>
+            <%=post.title%>
+        </h4>
+        <h5>
+            <%=post.post_field%>
+        </h5>
+        <%= link_to "Comment a Post", comment_path(post) %>
+    </div>
+
+<%end%>
+
+
+</div>

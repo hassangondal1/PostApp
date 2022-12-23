@@ -1,0 +1,24 @@
+<%= form_with model: post, data:{turbo: false} do|form|%>
+<%= render "shared/form_errors", form: form %>
+    <div class="container">
+        <div class="mb-3">
+            <%= form.label :title  %>
+            <%= form.text_field :title , class: "form-control" , placeholder: "Write Your Post Title" %>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="mb-3">
+            <%= form.label :post_field  %>
+            <%= form.text_field :post_field , class: "form-control" , placeholder: "Whats Happening ..." %>
+        </div>
+    </div>
+    <div class="container">
+        <div class="mb-3">    
+            <%= form.submit "Post" , class: "btn btn-primary"%>
+            <%if form.object.persisted?%>
+            <%= button_to "Delete", form.object , method: :delete , data:{confirm:"Are You Sure??"}, class: "btn btn-danger" %>
+            <%end%>
+        </div>
+    </div>
+<%end%>
