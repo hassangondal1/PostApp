@@ -1,2 +1,4 @@
 <h1 class="d-flex align-items-center justify-content-center">Edit a Post</h1>
-<%= render "form" , post: @post%>
+<%= turbo_frame_tag dom_id(@post) do %>
+  <%= render "form" , post: @post%>
+<%end%>

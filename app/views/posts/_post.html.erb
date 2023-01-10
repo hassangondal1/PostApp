@@ -1,10 +1,14 @@
 
-<div class="mb-4 card card-body" >
-<h3>
-<%=post.title%>
-</h3>
-<h5>
-<%=post.post_field%>
-</h5>
-<%= link_to "Edit a Post", edit_post_path(post) %>
+<%= turbo_frame_tag dom_id(post) do %>
+<div class="container">
+    <div class="mb-4 mt-4 card card-body bg-light" >
+        <h3>
+            <%=post.title%>
+        </h3>
+        <h5>
+            <%=post.post_field%>
+        </h5>
+        <%= link_to "Edit a Post", edit_post_path(post) %>
+    </div>
 </div>
+<%end%>

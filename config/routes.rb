@@ -12,5 +12,8 @@ post "sign_in" ,to:"session#create"
 delete "logout" , to:"session#destroy"
 resources :posts
 get "all_users_posts" ,to:"posts#show_all"
-resources :comments
+
+get 'comments/new.:id', to: 'comments#new' , as: "new_comment"
+post 'comments/new.:id', to: 'comments#create'
+get 'comments/show' , to:'comments#show' , as:"show_comment"
 end

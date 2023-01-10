@@ -4,7 +4,8 @@ class PostsController < ApplicationController
     before_action :set_all_posts , only:[:show_all]
 
     def index
-        @posts = Current.user.posts
+        @posts = Current.user.posts.order(created_at: :desc)
+
     end
 
     def new

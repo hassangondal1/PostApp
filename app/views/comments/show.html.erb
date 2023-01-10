@@ -1,16 +1,22 @@
 <h1 class="d-flex align-items-center justify-content-center">Comment on a post</h1>
 
-<%= form_with model: @comment, data:{turbo: false} do|form|%>
+<h1 class="d-flex align-items-center justify-content-center">All User Posts</h1>
 
-    <div class="container">
-        <div class="mb-3">
-            <%= form.label :Comment  %>
-            <%= form.text_field :comment_field , class: "form-control" , placeholder: "Write Your Comment" %>
-        </div>
+<% @comment.each do |comment| %>
+    <div class="mb-4 card card-body" >
+        <h4>
+            <%=post.user.email%>
+        </h4>
+        <h4>
+            <%=post.title%>
+        </h4>
+        <h5>
+            <%=post.post_field%>
+        </h5>
+       
     </div>
-        <div class="container">
-        <div class="mb-3">    
-            <%= form.submit "Comment" , class: "btn btn-primary"%>
-        </div>
-        </div>
-<% end %>
+
+<%end%>
+
+
+</div>

@@ -1,7 +1,7 @@
 <h1 class="d-flex align-items-center justify-content-center">All User Posts</h1>
-
+<div class = "container">
 <% @post.each do |post| %>
-    <div class="mb-4 card card-body" >
+    <div class="mb-4 mt-4 card card-body bg-light" >
         <h4>
             <%=post.user.email%>
         </h4>
@@ -11,10 +11,14 @@
         <h5>
             <%=post.post_field%>
         </h5>
-        <%= link_to "Comment a Post", comment_path(post) %>
+        <pre> 
+        <b>Comments:</b>
+        <%=post.comments.collect {|x| p "#{x.user.first_name} , #{x.comment_field }"  } %>
+        </pre>
+        <%= link_to "Comment a Post", new_comment_path(post.id) %>
     </div>
 
 <%end%>
 
-
+</div>
 </div>

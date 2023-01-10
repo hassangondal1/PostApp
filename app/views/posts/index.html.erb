@@ -1,11 +1,13 @@
 
+<%= turbo_stream_from "posts"%>
+<%= turbo_frame_tag "post_form" do%>
 <div class="d-flex align-items-center justify-content-center">
     <h1>POSTS</h1>
     <div>
         <%= link_to "Write a Post", new_post_path, class: "btn btn-primary"  %>
-    </div>
-
-    
+    </div>   
 </div>
-
-<%= render @posts%>
+<%end%>
+<%= turbo_frame_tag "posts" do%>
+<%= render @posts %>
+<%end%>

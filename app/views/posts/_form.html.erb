@@ -1,5 +1,5 @@
-<%= form_with model: post, data:{turbo: false} do|form|%>
-<%= render "shared/form_errors", form: form %>
+<%= form_with model: post do|form|%>
+    <%= render "shared/form_errors", form: form %>
     <div class="container">
         <div class="mb-3">
             <%= form.label :title  %>
@@ -13,11 +13,15 @@
             <%= form.text_field :post_field , class: "form-control" , placeholder: "Whats Happening ..." %>
         </div>
     </div>
-    <div class="container">
-        <div class="mb-3">    
+
+
+    <div class="d-flex justify-content-center">
+        <div class="p-5 bd-highlight">
             <%= form.submit "Post" , class: "btn btn-primary"%>
+        </div>
+        <div class="p-5 bd-highlight">
             <%if form.object.persisted?%>
-            <%= button_to "Delete", form.object , method: :delete , data:{confirm:"Are You Sure??"}, class: "btn btn-danger" %>
+            <%= link_to "Delete", form.object , method: :delete , class: "btn btn-danger" %>
             <%end%>
         </div>
     </div>
